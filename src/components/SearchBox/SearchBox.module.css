@@ -1,0 +1,23 @@
+.searchBox {
+  border: 1px solid grey;
+  text-align: left;
+  width: 380px;
+}
+span {
+  display: block;
+  margin-left: 12px;
+  margin-bottom: 4px;
+  margin-top: 4px;
+}
+input {
+  border: none;
+  outline: none;
+  padding: 12px;
+  width: 100%;
+  height: 40px;
+  border-top-left-radius: 8px;
+  border-top-right-radius: 8px;
+}
+input:focus {
+  border: 2px solid gray;
+}

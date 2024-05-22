@@ -1,9 +1,9 @@
 import { FaUserAlt } from "react-icons/fa";
 import { ImPhone } from "react-icons/im";
 import style from "./Contact.module.css";
-const Contact = ({ key, name, number }) => {
+const Contact = ({ name, number }) => {
   return (
-    <li id={key} className={style.card}>
+    <li className={style.card}>
       <div className={style.user}>
         <h2 className={style.nameUser}>
           <FaUserAlt className={style.icon} />

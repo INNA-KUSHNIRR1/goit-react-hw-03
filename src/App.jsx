@@ -13,14 +13,18 @@ const date = [
 
 function App() {
   const [contacts, setContacts] = useState(date);
+  const [filter, setFilter] = useState("");
 
+  const contactsFind = contacts.filter((contact) =>
+    contact.name.toLowerCase().includes(filter.toLowerCase())
+  );
   return (
     <>
       <div>
         <h1>Phonebook</h1>
         <ContactForm />
-        <SearchBox />
-        <ContactList contacts={contacts} />
+        <SearchBox value={filter} onFilter={setFilter} />
+        <ContactList values={contactsFind} />
       </div>
     </>
   );

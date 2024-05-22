@@ -1,15 +1,15 @@
 import Contact from "../Contact/Contact";
 import style from "./ContactList.module.css"
 
-const ContactList = ({ contacts }) => {
+const ContactList = ({ values }) => {
   return (
     <ul className={style.list}>
-      {contacts.map((contact) => {
+      {values.map((value) => {
         return (
           <Contact
-            key={contact.id}
-            name={contact.name}
-            number={contact.number}
+            key={value.id}
+            name={value.name}
+            number={value.number}
           />
         );
       })}
