@@ -1,8 +1,9 @@
-import { useState } from "react";
+import { useId, useState } from "react";
 import ContactList from "./components/ContactList/ContactList";
 import ContactForm from "./components/ContactForm/ContactForm";
 import SearchBox from "./components/SearchBox/SearchBox";
 import "./App.css";
+import { MdOutlineContacts } from "react-icons/md";
 
 const date = [
   { id: "id-1", name: "Rosie Simpson", number: "459-12-56" },
@@ -18,11 +19,20 @@ function App() {
   const contactsFind = contacts.filter((contact) =>
     contact.name.toLowerCase().includes(filter.toLowerCase())
   );
+
+  const contactId = useId();
+  const handleAddContact = ({ name, number }) => {
+    setContacts([...contacts, { id: contactId, name: name, number: number }]);
+  };
   return (
     <>
-      <div>
-        <h1>Phonebook</h1>
-        <ContactForm />
+      <div className="div">
+        <h1 className="title">
+          <MdOutlineContacts className="icon" size={50} />
+          <br />
+          Phonebook
+        </h1>
+        <ContactForm contacts={contacts} onAddContact={handleAddContact} />
         <SearchBox value={filter} onFilter={setFilter} />
         <ContactList values={contactsFind} />
       </div>
