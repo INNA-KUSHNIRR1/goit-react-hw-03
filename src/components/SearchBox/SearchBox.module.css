@@ -15,6 +15,7 @@ span {
   margin-left: 16px;
 }
 input {
+  background-color: #181818;
   color-scheme: light dark;
   border: none;
   outline: none;
