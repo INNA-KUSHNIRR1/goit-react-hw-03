@@ -1,4 +1,4 @@
-import { useId, useState } from "react";
+import { useEffect, useState } from "react";
 import ContactList from "./components/ContactList/ContactList";
 import ContactForm from "./components/ContactForm/ContactForm";
 import SearchBox from "./components/SearchBox/SearchBox";
@@ -13,16 +13,33 @@ const date = [
 ];
 
 function App() {
-  const [contacts, setContacts] = useState(date);
+  const [contacts, setContacts] = useState(() => {
+    const savedContacts = window.localStorage.getItem("saved-contacts");
+    if (savedContacts !== null) {
+      return JSON.parse(savedContacts);
+    }
+    return date;
+  });
+
   const [filter, setFilter] = useState("");
 
-  const contactsFind = contacts.filter((contact) =>
+  useEffect(() => {
+    window.localStorage.setItem("saved-contacts", JSON.stringify(contacts));
+  }, [contacts]);
+
+  const foundContacts = contacts.filter((contact) =>
     contact.name.toLowerCase().includes(filter.toLowerCase())
   );
 
-  const contactId = useId();
-  const handleAddContact = ({ name, number }) => {
-    setContacts([...contacts, { id: contactId, name: name, number: number }]);
+  const addContact = (newContact) => {
+    setContacts((prevContacts) => {
+      return [...prevContacts, newContact];
+    });
+  };
+  const deleteContact = (contactId) => {
+    setContacts((prevContacts) => {
+      return prevContacts.filter((contact) => contact.id !== contactId);
+    });
   };
   return (
     <>
@@ -32,9 +49,9 @@ function App() {
           <br />
           Phonebook
         </h1>
-        <ContactForm contacts={contacts} onAddContact={handleAddContact} />
+        <ContactForm onAdd={addContact} />
         <SearchBox value={filter} onFilter={setFilter} />
-        <ContactList values={contactsFind} />
+        <ContactList values={foundContacts} onDelete={deleteContact} />
       </div>
     </>
   );

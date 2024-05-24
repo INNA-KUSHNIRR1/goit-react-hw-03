@@ -10,20 +10,19 @@ const ContactSchema = Yup.object().shape({
     .min(3, "Too Short!")
     .max(50, "Too Long!")
     .required("Required"),
-  number: Yup.number()
-    .min(3)
-    .typeError("That doesn`t look like a phone number")
-    .positive("A phone number can`t start with a minus")
-    .integer("A phone number can`t include a decimal point")
+  number: Yup.string()
+    .trim()
+    .min(3, "Too Short!")
+    .max(50, "Too Long!")
     .required("Required"),
 });
 
-const ContactForm = ({ onAddContact }) => {
+const ContactForm = ({ onAdd }) => {
   const nameFieldId = useId();
   const numberFieldId = useId();
 
   const handleSubmit = (values, actions) => {
-    onAddContact(values);
+    onAdd({ id: Date.now(), name: values.name, number: values.number });
     actions.resetForm();
   };
   return (

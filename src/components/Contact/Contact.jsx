@@ -2,9 +2,9 @@ import { FaUserAlt } from "react-icons/fa";
 import { ImPhone } from "react-icons/im";
 import style from "./Contact.module.css";
 
-const Contact = ({ name, number }) => {
+const Contact = ({ data: { id, name, number }, onDelete }) => {
   return (
-    <li className={style.card}>
+    <div className={style.card}>
       <div className={style.user}>
         <h2 className={style.nameUser}>
           <FaUserAlt className={style.icon} />
@@ -15,8 +15,10 @@ const Contact = ({ name, number }) => {
           {number}
         </p>
       </div>
-      <button className={style.btn}>Delete</button>
-    </li>
+      <button className={style.btn} onClick={() => onDelete(id)}>
+        Delete
+      </button>
+    </div>
   );
 };
 export default Contact;
