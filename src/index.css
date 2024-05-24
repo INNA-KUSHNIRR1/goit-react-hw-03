@@ -16,11 +16,10 @@ a {
 }
 
 body {
-  margin: 0 auto;
   display: flex;
-  /* min-width: 320px; */
   min-height: 100vh;
   background-color: #242424;
+  margin: 0;
 }
 
 h1 {
