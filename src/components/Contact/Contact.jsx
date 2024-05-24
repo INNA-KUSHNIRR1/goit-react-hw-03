@@ -10,10 +10,10 @@ const Contact = ({ data: { id, name, number }, onDelete }) => {
           <FaUserAlt className={style.icon} />
           {name}
         </h2>
-        <p>
+        <a href={`tel: +${number}`}>
           <ImPhone className={style.icon} size={24} />
           {number}
-        </p>
+        </a>
       </div>
       <button className={style.btn} onClick={() => onDelete(id)}>
         Delete
