@@ -4,18 +4,35 @@
 .card {
   font-size: 24px;
   display: flex;
-  justify-content: space-between;
+  gap: 16px;
+  justify-content: center;
   align-items: center;
-  width: 380px;
+  max-width: 380px;
+  height: 130px;
   border: 1px solid rgba(140, 196, 186, 0.87);
   border-radius: 16px;
   padding: 12px;
 }
 .user {
+  width: 200px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 12px;
   text-align: left;
+  overflow-x: auto;
+  /* overflow-inline: inherit; */
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  scrollbar-width: thin;
+  /* scroll-snap-align: initial; */
+  /* word-wrap: break-word; */
+  /* height: 50px; */
+  /* height: 100%; */
+  /* height: 84px; */
+  /* overflow-y: auto; */
 }
 .nameUser {
-  margin-bottom: 12px;
   font-size: 24px;
 }
 .btn {
