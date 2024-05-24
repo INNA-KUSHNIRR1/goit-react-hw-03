@@ -11,10 +11,7 @@
   margin-left: 16px;
   color: rgb(201, 98, 98);
 }
-.field {
-  /* color: gray; */
-  /* margin-bottom: 12px; */
-}
+
 .field:focus {
   border: 1px solid rgb(201, 98, 98);
 }

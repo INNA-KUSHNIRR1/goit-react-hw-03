@@ -21,16 +21,9 @@
   gap: 12px;
   text-align: left;
   overflow-x: auto;
-  /* overflow-inline: inherit; */
   white-space: nowrap;
   text-overflow: ellipsis;
   scrollbar-width: thin;
-  /* scroll-snap-align: initial; */
-  /* word-wrap: break-word; */
-  /* height: 50px; */
-  /* height: 100%; */
-  /* height: 84px; */
-  /* overflow-y: auto; */
 }
 .nameUser {
   font-size: 24px;
