@@ -16,9 +16,11 @@
   border: 1px solid rgb(201, 98, 98);
 }
 .btn {
+  display: flex;
   box-shadow: 2px 3px 2px rgb(201, 98, 98);
   color: rgb(201, 98, 98);
-  margin-left: 110px;
+  margin-left: auto;
+  margin-right: auto;
   margin-bottom: 12px;
   text-align: center;
   border: 1px solid #1a1a1a;
