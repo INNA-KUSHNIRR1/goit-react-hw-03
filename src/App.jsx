@@ -43,16 +43,17 @@ function App() {
   };
   return (
     <>
-      <div className="div">
+      <div className="divWrapper">
         <h1 className="title">
           <MdOutlineContacts className="icon" size={50} />
           <br />
           Phonebook
         </h1>
-        <ContactForm onAdd={addContact} />
-        <SearchBox value={filter} onFilter={setFilter} />
-        <ContactList values={foundContacts} onDelete={deleteContact} />
       </div>
+
+      <ContactForm onAdd={addContact} />
+      <SearchBox value={filter} onFilter={setFilter} />
+      <ContactList values={foundContacts} onDelete={deleteContact} />
     </>
   );
 }
