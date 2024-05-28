@@ -2,10 +2,10 @@
   margin-right: 16px;
 }
 .card {
-  font-size: 24px;
+  font-size: 18px;
   display: flex;
   gap: 16px;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
   width: 380px;
   height: 130px;
@@ -13,8 +13,9 @@
   border-radius: 16px;
   padding: 12px;
 }
+
 .user {
-  width: 200px;
+  max-width: 200px;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -26,7 +27,7 @@
   scrollbar-width: thin;
 }
 .nameUser {
-  font-size: 24px;
+  font-size: 18px;
 }
 .btn {
   display: flex;
