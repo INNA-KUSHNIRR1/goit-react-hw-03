@@ -11,11 +11,10 @@ const ContactSchema = Yup.object().shape({
     .min(3, "Too Short!")
     .max(50, "Too Long!")
     .required("Required"),
-  number: Yup.string()
-    .trim()
-    .min(3, "Too Short!")
-    .max(50, "Too Long!")
-    .required("Required"),
+  number: Yup.string().matches(/^((\(\d{3}\) ?)|(\d{3}-))?\d{3}-\d{4}$/, {
+    message: "Invalid phone number (XXX-XXX-XXXX)",
+    excludeEmptyString: false,
+  }),
 });
 
 const ContactForm = ({ onAdd }) => {
